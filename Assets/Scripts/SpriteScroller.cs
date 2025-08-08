@@ -3,17 +3,17 @@ using UnityEngine;
 public class SpriteScroller : MonoBehaviour
 {
     [SerializeField] Vector2 scrollSpeed;
-    Vector2 offset;
-    Material material;
+    Vector2 _offset;
+    Material _material;
 
     void Awake()
     {
-        material = GetComponent<SpriteRenderer>().material;
+        _material = GetComponent<SpriteRenderer>().material;
     }
 
     void Update()
     {
-        offset += scrollSpeed * Time.deltaTime;
-        material.mainTextureOffset = offset;
+        _offset += scrollSpeed * Time.deltaTime;
+        _material.mainTextureOffset = _offset;
     }
 }

@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections;
 
 public class Player : MonoBehaviour
 {
@@ -23,14 +22,15 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        initBounds();
+        InitBounds();
     }
+
     void Update()
     {
         Move();
     }
 
-    void initBounds()
+    void InitBounds()
     {
         Camera mainCamera = Camera.main;
         minBounds = mainCamera.ViewportToWorldPoint(new Vector2(0, 0));
@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
 
     void OnFire(InputValue value)
     {
-        if(shooter != null)
+        if (shooter != null)
         {
             shooter.isFiring = value.isPressed;
         }

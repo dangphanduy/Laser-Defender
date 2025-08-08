@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class ScoreKeeper : MonoBehaviour
 {
@@ -11,6 +10,7 @@ public class ScoreKeeper : MonoBehaviour
     {
         ManageSingleton();
     }
+
     void ManageSingleton()
     {
         if (instance != null)
@@ -24,6 +24,7 @@ public class ScoreKeeper : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
+
     public int GetCurrentScore()
     {
         return currentScore;

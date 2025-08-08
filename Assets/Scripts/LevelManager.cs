@@ -32,7 +32,7 @@ public class LevelManager : MonoBehaviour
         Application.Quit();
     }
 
-    IEnumerator WaitAndLoad(string sceneName, float waitTime)
+    private IEnumerator WaitAndLoad(string sceneName, float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
         SceneManager.LoadScene(sceneName);

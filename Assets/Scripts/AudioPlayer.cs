@@ -14,7 +14,7 @@ public class AudioPlayer : MonoBehaviour
 
     void Awake()
     {
-        ManageSingleton();  
+        ManageSingleton();
     }
 
     void ManageSingleton()
@@ -32,7 +32,8 @@ public class AudioPlayer : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
-    public void playShootingClip()
+
+    public void PlayShootingClip()
     {
         if (shootingClip != null)
         {
@@ -40,7 +41,7 @@ public class AudioPlayer : MonoBehaviour
         }
     }
 
-    public void playDamageClip()
+    public void PlayDamageClip()
     {
         if (damageClip != null)
         {
@@ -48,14 +49,12 @@ public class AudioPlayer : MonoBehaviour
         }
     }
 
-    public void PlayClip(AudioClip clip, float volume)
+    void PlayClip(AudioClip clip, float volume)
     {
         if (clip != null)
         {
             Vector3 cameraPos = Camera.main.transform.position;
-            AudioSource.PlayClipAtPoint(clip,
-                                        cameraPos,
-                                        volume);
+            AudioSource.PlayClipAtPoint(clip, cameraPos, volume);
         }
     }
 }

@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Serialization;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class Health : MonoBehaviour
 {
@@ -12,10 +8,12 @@ public class Health : MonoBehaviour
     [SerializeField] ParticleSystem hitEffect;
 
     [SerializeField] bool applyCameraShake;
+
     CameraShake cameraShake;
     AudioPlayer audioPlayer;
     ScoreKeeper scoreKeeper;
     LevelManager levelManager;
+
     void Awake()
     {
         cameraShake = Camera.main.GetComponent<CameraShake>();
@@ -32,7 +30,7 @@ public class Health : MonoBehaviour
         {
             TakeDamage(damageDealer.GetDamage());
             PlayHitEffect();
-            audioPlayer.playDamageClip();
+            audioPlayer.PlayDamageClip();
             ShakeCamera();
             damageDealer.Hit();
         }
@@ -64,7 +62,7 @@ public class Health : MonoBehaviour
         }
         Destroy(gameObject);
     }
-    
+
     void PlayHitEffect()
     {
         if (hitEffect != null)

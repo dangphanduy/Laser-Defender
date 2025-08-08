@@ -1,22 +1,25 @@
-﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] List<WaveConfigSO> waveConfigs;
     [SerializeField] float timeBetweenWaves = 0f;
     [SerializeField] bool isLooping;
+
     WaveConfigSO currentWave;
-    private void Start()
+
+    void Start()
     {
         StartCoroutine(SpawnEnemyWaves());
     }
 
-    public WaveConfigSO getCurrentWave()
+    public WaveConfigSO GetCurrentWave()
     {
         return currentWave;
     }
+
     IEnumerator SpawnEnemyWaves()
     {
         do
@@ -37,3 +40,4 @@ public class EnemySpawner : MonoBehaviour
         } while (isLooping);
     }
 }
+

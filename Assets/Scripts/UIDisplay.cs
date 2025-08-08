@@ -10,13 +10,14 @@ public class UIDisplay : MonoBehaviour
 
     [Header("Score")]
     [SerializeField] TextMeshProUGUI scoreText;
-    [SerializeField] ScoreKeeper score;
+    ScoreKeeper scoreKeeper;
 
     void Awake()
     {
-            playerHealth = FindAnyObjectByType<Health>();
-            score = FindAnyObjectByType<ScoreKeeper>();
+        playerHealth = FindAnyObjectByType<Health>();
+        scoreKeeper = FindAnyObjectByType<ScoreKeeper>();
     }
+
     void Start()
     {
         healthSlider.maxValue = playerHealth.GetHealth();
@@ -25,6 +26,6 @@ public class UIDisplay : MonoBehaviour
     void Update()
     {
         healthSlider.value = playerHealth.GetHealth();
-        scoreText.text = score.GetCurrentScore().ToString("0000000000");
+        scoreText.text = scoreKeeper.GetCurrentScore().ToString("0000000000");
     }
 }
